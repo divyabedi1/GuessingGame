@@ -2,7 +2,7 @@
 
 function guessing_game(){
     local direc=$(ls -l | grep -v ^l | wc -l)
-    while [[1=1]]
+    while true
     do
         echo "Try to guess the number of files in the directory?"
         read number
