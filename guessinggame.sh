@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
 function guessing_game(){
-    local direc=$(ls -l | grep -v ^l | wc -l)
+    local direc=$(find ./ -type f | wc -l)
     while true
     do
         echo "Try to guess the number of files in the directory?"
         read number
 		if [[ "$number" =~ ^[0-9]+$ ]]
 		then
-			if [ $number -lt $direc ]
+			if [ $number -eq 0 ]
+			then
+				echo "Folder is not empty :)"
+			elif [ $number -lt $direc ]
 			then
 				echo "Your guess is Lesser than the actual number."
 			elif [ $number -gt $direc ]
@@ -18,6 +21,8 @@ function guessing_game(){
 				echo "Congratulations, You are Right!"
 				break
 			fi
+		else
+			echo "Please Enter a valid number and try again!!"
         fi
     done
 }
