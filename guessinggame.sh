@@ -4,28 +4,28 @@ function guessing_game(){
     local direc=$(find . ! -name . -prune -print | grep -c /)
     while true
     do
-        echo -e "\e[0;36mTry to guess the number of files in the directory?\e[0m"
+        echo "Try to guess the number of files in the directory?"
 		read number
 		if [[ "$number" =~ ^[0-9]+$ ]]
 		then
-			if [ $number -eq 0 ]
+			if [ $number -eq 0 ] && [ $direc -ne 0 ]
 			then
-				echo -e "\e[0;31mFolder is not empty :)"
+				echo "Folder is not empty :)"
 			elif [ $number -lt $direc ]
 			then
-				echo -e "\e[0;35mYour guess is Lesser than the actual number\e[0m"
+				echo "Your guess is Lesser than the actual number"
 			elif [ $number -gt $direc ]
 			then
-				echo -e "\e[0;35mYour guess is Greater than the actual number\e[0m"
+				echo "Your guess is Greater than the actual number"
 			else
-				echo -e "\e[0;32mCongratulations, You are Right!\e[0m"
+				echo "Congratulations, You are Right!"
 				break
 			fi
 		else
-			echo -e "\e[0;31mPlease Enter a valid number and try again!!\e[0m"
+			echo "Please Enter a valid number and try again!!"
         fi
     done
 }
-echo -e "\e[0;36mGuess the number of files in the current directory :)\e[0m"
+echo "Guess the number of files in the current directory :)"
 guessing_game
 
