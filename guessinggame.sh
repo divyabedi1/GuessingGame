@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function guessing_game(){
-    local direc=$(find ./ -type f | wc -l)
+    local direc=$(find . ! -name . -prune -print | grep -c /)
     while true
     do
         echo "Try to guess the number of files in the directory?"

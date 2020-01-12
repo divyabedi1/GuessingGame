@@ -10,4 +10,5 @@ README.md:
 	echo '' >> README.md
 	wc -l guessinggame.sh | egrep -o "[0-9]+" >> README.md
 
-clear: rm README.md
+clean:
+	rm README.md
